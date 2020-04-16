@@ -1,18 +1,6 @@
-// const questions = [
-
-// ];
-
-// function writeToFile(fileName, data) {
-// }
-
-// function init() {
-
-// }
-
-// init();
-
 const fs = require("fs");
 const inquirer = require("inquirer");
+const util = require("util")
 
 function promptUserInput() {
     return inquirer.prompt([
@@ -31,11 +19,11 @@ function promptUserInput() {
         name: "description",
         message: "Please give a description for your project."
       },
-      {
-        type: "input",   //do a split function here in between the spaces and find a way to put them on separate lines
-        name: "tableOfContents", 
-        message: "Please provide Table of Contents."
-      },
+    //   {
+    //     type: "input",   //do a split function here in between the spaces and find a way to put them on separate lines
+    //     name: "tableOfContents", 
+    //     message: "Please provide Table of Contents."
+    //   },
       {
         type: "input",
         name: "installation",
@@ -84,7 +72,12 @@ function promptUserInput() {
 
     ### Table of Contents
 
-    ${userInput.tableOfContents}
+    [Installation](#installation)
+    [Usage](#usage)
+    [License](#license)
+    [Contributing](#contributing)
+    [Tests](#tests)
+    [Questions](#questions)
 
     ### Installation
 
@@ -102,13 +95,28 @@ function promptUserInput() {
 
     ${userInput.contributing}
 
-    ### Running the Tests
+    ### Tests
 
     ${userInput.tests}
 
     ### Questions
-    ![GitHub Profile Picture](${profilePicture})
-    ### ${username}
-    ### ${email}
+    ![GitHub Profile Picture](${userInput.profilePicture})
+    ### ${userInput.username}
+    ### ${userInput.email}
     `
   }
+
+const writeFileAsync = util.promisify(fs.writeFile);
+
+promptUserInput()
+  .then(function(userInput) {
+    const readMe = readMeGenerator(userInput);
+
+    return writeFileAsync("README.md", readMe);
+  })
+  .then(function() {
+    console.log("Success!");
+  })
+  .catch(function(error) {
+    console.log(error);
+  });
