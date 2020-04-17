@@ -1,5 +1,4 @@
-
-   # Homework 8 - Good README Generator
+# Homework 8 - Good README Generator
 
    ## Description
 
@@ -24,7 +23,7 @@
 
     ### License
 
-    ![License badge](https://img.shields.io/badge/license-MIT-green)
+   ![License badge](https://img.shields.io/badge/license-MIT-green)
 
     ### Contributing
 
@@ -35,7 +34,7 @@
     none
 
     ### Questions
-    ![GitHub Profile Picture](https://avatars1.githubusercontent.com/u/59744231?s=460&u=9bfb37ce20b387113812deecd35083ffc6756e15&v=4)
-    ### cjpalmerin
-    ### cjpalmerin@gmail.com
+   ![GitHub Profile Picture](https://avatars1.githubusercontent.com/u/59744231?s=460&u=9bfb37ce20b387113812deecd35083ffc6756e15&v=4)
+   ### cjpalmerin
+   ### cjpalmerin@gmail.com
     
