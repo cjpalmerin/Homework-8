@@ -37,7 +37,18 @@ function promptUserInput() {
       {
         type: "input",
         name: "license",
-        message: "What is the licensing?"
+        message: "What is the licensing? (ie. MIT, Apache, lgpl_2_1)"
+      },
+      {
+        // type: "input",
+        // name: "license-color",
+        // message: "What color do you want for the badge?"
+        type: 'list',
+        message: "What color do you want for the badge?",
+        name: "color",
+        choices: [,"green", "blue"],
+        // choices: ["brightgreen", "green", "yellowgreen", "yellow", "orange", "red", "blue", "lightgrey", "blueviolet", "ff69bf", "9cf"],
+        placeholder: "blue",
       },
       {
         type: "input",
@@ -89,7 +100,7 @@ function promptUserInput() {
 
     ### License
 
-    ${userInput.license}
+    ![License badge](https://img.shields.io/badge/license-${userInput.license}-${userInput.color})
 
     ### Contributing
 
@@ -112,7 +123,8 @@ promptUserInput()
   .then(function(userInput) {
     const readMe = readMeGenerator(userInput);
 
-    return writeFileAsync("README.md", readMe);
+    return writeFileAsync("README.md", readMe,);
+    // return writeFileAsync("README.md", JSON.stringify(readMe, null, 2));
   })
   .then(function() {
     console.log("Success!");
