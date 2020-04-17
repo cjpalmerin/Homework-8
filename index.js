@@ -75,46 +75,46 @@ function promptUserInput() {
 
   function readMeGenerator(userInput) {
     return `
-    # ${userInput.title}
+# ${userInput.title}
 
-    ## Description
+## Description
 
-    ${userInput.description}
+${userInput.description}
 
-    ### Table of Contents
+### Table of Contents
 
-    [Installation](#installation)
-    [Usage](#usage)
-    [License](#license)
-    [Contributing](#contributing)
-    [Tests](#tests)
-    [Questions](#questions)
+[Installation](#installation)
+[Usage](#usage)
+[License](#license)
+[Contributing](#contributing)
+[Tests](#tests)
+[Questions](#questions)
 
-    ### Installation
+### Installation
 
-    ${userInput.installation}
+${userInput.installation}
 
-    ## Usage
+## Usage
 
-    ${userInput.usage}
+${userInput.usage}
 
-    ### License
+### License
 
-    ![License badge](https://img.shields.io/badge/license-${userInput.license}-${userInput.color})
+![License badge](https://img.shields.io/badge/license-${userInput.license}-${userInput.color})
 
-    ### Contributing
+### Contributing
 
-    ${userInput.contributing}
+${userInput.contributing}
 
-    ### Tests
+### Tests
 
-    ${userInput.tests}
+${userInput.tests}
 
-    ### Questions
-    ![GitHub Profile Picture](${userInput.profilePicture})
-    ### ${userInput.username}
-    ### ${userInput.email}
-    `
+### Questions
+![GitHub Profile Picture](${userInput.profilePicture})
+### ${userInput.username}
+### ${userInput.email}
+`
   }
 
 const writeFileAsync = util.promisify(fs.writeFile);
@@ -123,7 +123,7 @@ promptUserInput()
   .then(function(userInput) {
     const readMe = readMeGenerator(userInput);
 
-    return writeFileAsync("README.md", readMe,);
+    return writeFileAsync("README.md", readMe);
     // return writeFileAsync("README.md", JSON.stringify(readMe, null, 2));
   })
   .then(function() {
