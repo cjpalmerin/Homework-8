@@ -22,6 +22,8 @@
    Make sure that require and util are installed. From there answer all of the questions provided by the prompts in the terminal. Once all the questions are answered then you'll have access to your brand new README.md file.
 
    ### License
+   
+   ![GitHub Profile Picture](https://img.shields.io/badge/license-MIT-green)
 
    None
 
